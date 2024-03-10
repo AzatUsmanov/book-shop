@@ -1,6 +1,6 @@
 package pet.projects.bookshop.service.inter;
 
-import pet.projects.bookshop.model.Book;
+import pet.projects.bookshop.dto.Book;
 
 public interface BookManageService {
     Book findById(Integer id);

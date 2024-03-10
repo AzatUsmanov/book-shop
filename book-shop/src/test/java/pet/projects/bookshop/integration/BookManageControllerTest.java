@@ -15,7 +15,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.MockMvc;
 
-import pet.projects.bookshop.model.Role;
+import pet.projects.bookshop.dto.Role;
 
 import java.util.ArrayList;
 

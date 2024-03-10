@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import pet.projects.bookshop.model.User;
+import pet.projects.bookshop.dto.User;
 import pet.projects.bookshop.service.inter.RegistrationService;
 
 @RestController

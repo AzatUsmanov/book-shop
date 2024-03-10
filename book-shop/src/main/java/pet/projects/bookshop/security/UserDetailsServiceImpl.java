@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import pet.projects.bookshop.model.User;
+import pet.projects.bookshop.dto.User;
 import pet.projects.bookshop.repositories.UserRepository;
 
 import java.util.ArrayList;

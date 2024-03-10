@@ -2,7 +2,7 @@ package pet.projects.bookshop.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import pet.projects.bookshop.model.Book;
+import pet.projects.bookshop.dto.Book;
 
 import java.util.List;
 import java.util.Optional;

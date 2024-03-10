@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import pet.projects.bookshop.model.User;
+import pet.projects.bookshop.dto.User;
 import pet.projects.bookshop.repositories.UserRepository;
 import pet.projects.bookshop.service.inter.RegistrationService;
 import pet.projects.bookshop.tool.exception.UserAlreadyRegisteredException;

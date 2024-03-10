@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pet.projects.bookshop.model.Purchase;
+import pet.projects.bookshop.dto.Purchase;
 import pet.projects.bookshop.repositories.UserRepository;
 import pet.projects.bookshop.service.inter.UserProfileService;
 import pet.projects.bookshop.tool.exception.NotEnoughMoneyInAccountException;

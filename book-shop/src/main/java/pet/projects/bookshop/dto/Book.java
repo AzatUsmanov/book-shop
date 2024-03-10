@@ -1,4 +1,4 @@
-package pet.projects.bookshop.model;
+package pet.projects.bookshop.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;

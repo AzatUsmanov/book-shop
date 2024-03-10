@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import pet.projects.bookshop.model.Book;
+import pet.projects.bookshop.dto.Book;
 import pet.projects.bookshop.service.inter.BookSearchService;
 
 import java.util.List;

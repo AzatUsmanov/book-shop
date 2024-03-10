@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import pet.projects.bookshop.model.Book;
+import pet.projects.bookshop.dto.Book;
 import pet.projects.bookshop.service.inter.BookManageService;
 
 @RestController

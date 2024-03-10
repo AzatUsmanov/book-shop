@@ -1,4 +1,4 @@
-package pet.projects.bookshop.model;
+package pet.projects.bookshop.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

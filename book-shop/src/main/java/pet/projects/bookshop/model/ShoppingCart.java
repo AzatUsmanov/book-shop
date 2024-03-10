@@ -1,6 +1,6 @@
-package pet.projects.bookshop.tool.shoppingcart;
+package pet.projects.bookshop.model;
 
-import pet.projects.bookshop.model.Book;
+import pet.projects.bookshop.dto.Book;
 
 import java.util.List;
 

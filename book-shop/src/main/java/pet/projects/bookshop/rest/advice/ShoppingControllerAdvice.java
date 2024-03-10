@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import pet.projects.bookshop.model.ErrorDetails;
+import pet.projects.bookshop.dto.ErrorDetails;
 import pet.projects.bookshop.tool.exception.BookAlreadyInCartException;
 import pet.projects.bookshop.tool.exception.BookNotFoundInCartException;
 import pet.projects.bookshop.tool.exception.NotEnoughMoneyInAccountException;

@@ -1,6 +1,6 @@
 package pet.projects.bookshop.service.inter;
 
-import pet.projects.bookshop.model.Purchase;
+import pet.projects.bookshop.dto.Purchase;
 
 import java.math.BigDecimal;
 import java.util.List;

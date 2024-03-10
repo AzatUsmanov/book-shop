@@ -7,7 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import pet.projects.bookshop.model.Book;
+import pet.projects.bookshop.dto.Book;
 import pet.projects.bookshop.repositories.BookRepository;
 import pet.projects.bookshop.service.impl.BookManageServiceImpl;
 import pet.projects.bookshop.tool.exception.BookAlreadyExistException;

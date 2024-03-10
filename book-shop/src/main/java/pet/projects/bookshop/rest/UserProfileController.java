@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
-import pet.projects.bookshop.model.Purchase;
+import pet.projects.bookshop.dto.Purchase;
 import pet.projects.bookshop.service.inter.UserProfileService;
 
 import java.math.BigDecimal;

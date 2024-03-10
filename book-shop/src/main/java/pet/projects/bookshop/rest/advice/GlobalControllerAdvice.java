@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import pet.projects.bookshop.model.ErrorDetails;
+import pet.projects.bookshop.dto.ErrorDetails;
 
 
 

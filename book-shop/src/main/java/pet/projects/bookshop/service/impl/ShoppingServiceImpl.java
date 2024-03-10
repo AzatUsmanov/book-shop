@@ -5,16 +5,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import pet.projects.bookshop.model.Book;
-import pet.projects.bookshop.model.Purchase;
-import pet.projects.bookshop.model.User;
+import pet.projects.bookshop.dto.Book;
+import pet.projects.bookshop.dto.Purchase;
+import pet.projects.bookshop.dto.User;
 import pet.projects.bookshop.repositories.BookRepository;
 import pet.projects.bookshop.repositories.PurchaseRepository;
 import pet.projects.bookshop.repositories.UserRepository;
 import pet.projects.bookshop.service.inter.ShoppingService;
 import pet.projects.bookshop.tool.exception.BookNotFoundException;
 import pet.projects.bookshop.tool.exception.UserNotFoundException;
-import pet.projects.bookshop.tool.shoppingcart.ShoppingCart;
+import pet.projects.bookshop.model.ShoppingCart;
 import pet.projects.bookshop.tool.exception.NotEnoughMoneyInAccountException;
 
 import java.math.BigDecimal;

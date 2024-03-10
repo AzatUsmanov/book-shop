@@ -1,9 +1,9 @@
-package pet.projects.bookshop.tool.shoppingcart;
+package pet.projects.bookshop.model;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
-import pet.projects.bookshop.model.Book;
+import pet.projects.bookshop.dto.Book;
 import pet.projects.bookshop.tool.exception.BookAlreadyInCartException;
 import pet.projects.bookshop.tool.exception.BookNotFoundInCartException;
 

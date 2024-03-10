@@ -2,7 +2,7 @@ package pet.projects.bookshop.service.impl;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import pet.projects.bookshop.model.Book;
+import pet.projects.bookshop.dto.Book;
 import pet.projects.bookshop.repositories.BookRepository;
 import pet.projects.bookshop.service.inter.BookSearchService;
 
