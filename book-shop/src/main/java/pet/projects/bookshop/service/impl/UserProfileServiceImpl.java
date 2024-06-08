@@ -25,23 +25,23 @@ public class UserProfileServiceImpl implements UserProfileService {
     private final UserRepository userRepository;
 
     @Override
-    public BigDecimal getAmountMoneyOnAccount(String username) {
+    public BigDecimal getAmountMoneyOnAccount(String username) throws UserNotFoundException {
         return userRepository
                 .findByUsername(username)
-                .orElseThrow(() -> new UserNotFoundException())
+                .orElseThrow(UserNotFoundException::new)
                 .getMoneyInAccount();
     }
 
     @Override
     @Transactional
-    public void putMoneyIntoAccount(String username, BigDecimal moneyToTransfer) {
+    public void putMoneyIntoAccount(String username, BigDecimal moneyToTransfer) throws UserNotFoundException {
         var user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new UserNotFoundException());;
+                .orElseThrow(UserNotFoundException::new);;
         final var moneyInAccount = user.getMoneyInAccount();
 
         if (moneyToTransfer.compareTo(MINIMUM_ACCEPTABLE_AMOUNT_OF_MONEY)
                 == COMPARISON_LESS_THAN_ZERO) {
-            throw new IllegalArgumentException("");
+            throw new IllegalArgumentException();
         }
         final var sum =  moneyInAccount.add(moneyToTransfer);
         user.setMoneyInAccount(sum);
@@ -53,9 +53,9 @@ public class UserProfileServiceImpl implements UserProfileService {
 
     @Override
     @Transactional
-    public void withdrawMoneyFromAccount(String username, BigDecimal moneyToWithdraw) {
+    public void withdrawMoneyFromAccount(String username, BigDecimal moneyToWithdraw) throws UserNotFoundException, NotEnoughMoneyInAccountException {
         var user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new UserNotFoundException());
+                .orElseThrow(UserNotFoundException::new);
         final var moneyInAccount = user.getMoneyInAccount();
 
         if (moneyInAccount.compareTo(moneyToWithdraw)
@@ -74,10 +74,10 @@ public class UserProfileServiceImpl implements UserProfileService {
     }
 
     @Override
-    public List<Purchase> getPurchases(String username) {
-        final var user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new UserNotFoundException());
-        return user.getPurchases();
+    public List<Purchase> getPurchases(String username) throws UserNotFoundException {
+        return userRepository.findByUsername(username)
+                .orElseThrow(UserNotFoundException::new)
+                .getPurchases();
     }
 
 }

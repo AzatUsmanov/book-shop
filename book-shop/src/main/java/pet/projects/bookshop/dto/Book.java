@@ -16,6 +16,7 @@ import lombok.Data;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -26,6 +27,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "books")
+@ToString(includeFieldNames=true)
 public class Book {
 
     private static final int NAME_MAX_LENGTH = 50;
@@ -57,14 +59,6 @@ public class Book {
         if (this == o) return true;
         if (!(o instanceof Book book)) return false;
         return getName().equals(book.getName()) && getAuthor().equals(book.getAuthor());
-    }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "name='" + name + '\'' +
-                ", author='" + author + '\'' +
-                '}';
     }
 
 }

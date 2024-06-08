@@ -19,10 +19,11 @@ public class RegistrationServiceImpl implements RegistrationService {
     private final UserRepository userRepository;
 
     @Override
-    public void register(User user) {
+    public void register(User user) throws UserAlreadyRegisteredException {
         final var password = user.getPassword();
         final var encryptedPassword = passwordEncoder.encode(password);
         final var username = user.getUsername();
+
         user.setPassword(encryptedPassword);
 
         if (userRepository.existsByUsername(username)) {

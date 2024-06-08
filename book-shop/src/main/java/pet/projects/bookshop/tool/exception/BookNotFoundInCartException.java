@@ -2,7 +2,7 @@ package pet.projects.bookshop.tool.exception;
 
 import java.util.NoSuchElementException;
 
-public class BookNotFoundInCartException extends NoSuchElementException {
+public class BookNotFoundInCartException extends Exception {
 
     public BookNotFoundInCartException() {
     }

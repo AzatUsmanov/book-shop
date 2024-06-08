@@ -16,14 +16,14 @@ public class ShoppingCartImpl implements ShoppingCart {
 
     private final List<Book> books = new ArrayList<>();
 
-    public void add(Book book) {
+    public void add(Book book) throws BookAlreadyInCartException {
         if (books.contains(book)) {
             throw new BookAlreadyInCartException();
         }
         books.add(book);
     }
 
-    public void delete(Book book) {
+    public void delete(Book book) throws BookNotFoundInCartException {
         if (!books.contains(book)) {
             throw new BookNotFoundInCartException();
         }

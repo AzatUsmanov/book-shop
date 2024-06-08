@@ -1,6 +1,6 @@
 package pet.projects.bookshop.tool.exception;
 
-public class BookAlreadyExistException extends RuntimeException {
+public class BookAlreadyExistException extends Exception {
 
     public BookAlreadyExistException() {
     }

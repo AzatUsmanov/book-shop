@@ -1,6 +1,6 @@
 package pet.projects.bookshop.tool.exception;
 
-public class BookAlreadyInCartException extends RuntimeException {
+public class BookAlreadyInCartException extends Exception {
 
     public BookAlreadyInCartException() {
     }

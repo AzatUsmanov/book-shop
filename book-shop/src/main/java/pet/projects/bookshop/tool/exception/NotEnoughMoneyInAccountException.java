@@ -1,6 +1,6 @@
 package pet.projects.bookshop.tool.exception;
 
-public class NotEnoughMoneyInAccountException extends RuntimeException {
+public class NotEnoughMoneyInAccountException extends Exception {
 
     public NotEnoughMoneyInAccountException() {
     }

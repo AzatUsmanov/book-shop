@@ -23,9 +23,9 @@ public class PurchaseServiceImpl implements PurchaseService {
     }
 
     @Override
-    public Purchase findById(Integer id) {
+    public Purchase findById(Integer id) throws PurchaseNotFoundException {
         return purchaseRepository.findById(id)
-                .orElseThrow(() -> new PurchaseNotFoundException());
+                .orElseThrow(PurchaseNotFoundException::new);
     }
 
 }

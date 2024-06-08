@@ -13,6 +13,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import pet.projects.bookshop.dto.Book;
 import pet.projects.bookshop.service.inter.ShoppingService;
+import pet.projects.bookshop.tool.exception.BookAlreadyInCartException;
+import pet.projects.bookshop.tool.exception.BookNotFoundException;
+import pet.projects.bookshop.tool.exception.BookNotFoundInCartException;
+import pet.projects.bookshop.tool.exception.NotEnoughMoneyInAccountException;
+import pet.projects.bookshop.tool.exception.UserNotFoundException;
 
 import java.util.List;
 
@@ -24,13 +29,13 @@ public class ShoppingController {
 
     @PutMapping("/shopping")
     void putBookInCartByNameAndAuthor(@RequestParam String name,
-                                      @RequestParam String author) {
+                                      @RequestParam String author) throws BookNotFoundException, BookAlreadyInCartException {
         shoppingService.putBookInCartByNameAndAuthor(name, author);
     }
 
     @DeleteMapping("/shopping")
     void deleteBookFromCartByNameAndAuthor(@RequestParam String name,
-                                           @RequestParam String author) {
+                                           @RequestParam String author) throws BookNotFoundException, BookNotFoundInCartException {
         shoppingService.deleteBookFromCartByNameAndAuthor(name, author);
     }
 
@@ -40,7 +45,7 @@ public class ShoppingController {
     }
 
     @PostMapping("/shopping")
-    void buyBooksFromCart(@AuthenticationPrincipal UserDetails userDetails) {
+    void buyBooksFromCart(@AuthenticationPrincipal UserDetails userDetails) throws UserNotFoundException, NotEnoughMoneyInAccountException {
         shoppingService.buyBooksFromCart(userDetails.getUsername());
     }
 

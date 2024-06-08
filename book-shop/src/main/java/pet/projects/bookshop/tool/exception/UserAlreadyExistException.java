@@ -1,6 +1,6 @@
 package pet.projects.bookshop.tool.exception;
 
-public class UserAlreadyExistException extends RuntimeException {
+public class UserAlreadyExistException extends Exception {
 
     public UserAlreadyExistException() {
     }

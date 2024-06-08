@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import pet.projects.bookshop.dto.User;
 import pet.projects.bookshop.service.inter.UserManageService;
+import pet.projects.bookshop.tool.exception.UserAlreadyExistException;
+import pet.projects.bookshop.tool.exception.UserNotFoundException;
 
 import java.util.List;
 
@@ -23,7 +25,7 @@ public class UserManageController {
     private final UserManageService userManageService;
 
     @GetMapping("/management/user/{id}")
-    User findById(@PathVariable Integer id) {
+    User findById(@PathVariable Integer id) throws UserNotFoundException {
         return userManageService.findById(id);
     }
 
@@ -34,17 +36,17 @@ public class UserManageController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/management/user")
-    void add(@RequestBody User user) {
+    void add(@RequestBody User user) throws UserAlreadyExistException {
         userManageService.add(user);
     }
 
     @DeleteMapping("/management/user/{id}")
-    void deleteById(@PathVariable Integer id) {
+    void deleteById(@PathVariable Integer id) throws UserNotFoundException {
         userManageService.deleteById(id);
     }
 
     @PatchMapping("/management/user")
-    void updateById(@RequestBody User user) {
+    void updateById(@RequestBody User user) throws UserNotFoundException {
         userManageService.update(user);
     }
 

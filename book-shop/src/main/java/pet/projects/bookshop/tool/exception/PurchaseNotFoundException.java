@@ -2,7 +2,7 @@ package pet.projects.bookshop.tool.exception;
 
 import java.util.NoSuchElementException;
 
-public class PurchaseNotFoundException extends NoSuchElementException {
+public class PurchaseNotFoundException extends Exception {
 
     public PurchaseNotFoundException() {
     }

@@ -18,6 +18,7 @@ import lombok.Data;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -27,6 +28,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(includeFieldNames=true)
 @Table(name = "users")
 public class User {
 
@@ -56,11 +58,4 @@ public class User {
     @JsonIgnore
     private List<Purchase> purchases;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "username='" + username + '\'' +
-                ", role=" + role +
-                '}';
-    }
 }

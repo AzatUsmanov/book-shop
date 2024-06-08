@@ -12,7 +12,9 @@ import pet.projects.bookshop.repositories.BookRepository;
 import pet.projects.bookshop.repositories.PurchaseRepository;
 import pet.projects.bookshop.repositories.UserRepository;
 import pet.projects.bookshop.service.inter.ShoppingService;
+import pet.projects.bookshop.tool.exception.BookAlreadyInCartException;
 import pet.projects.bookshop.tool.exception.BookNotFoundException;
+import pet.projects.bookshop.tool.exception.BookNotFoundInCartException;
 import pet.projects.bookshop.tool.exception.UserNotFoundException;
 import pet.projects.bookshop.model.ShoppingCart;
 import pet.projects.bookshop.tool.exception.NotEnoughMoneyInAccountException;
@@ -40,9 +42,9 @@ public class ShoppingServiceImpl implements ShoppingService {
     private final PurchaseRepository purchaseRepository;
 
     @Override
-    public void putBookInCartByNameAndAuthor(String name, String author) {
+    public void putBookInCartByNameAndAuthor(String name, String author) throws BookNotFoundException, BookAlreadyInCartException {
         final var book = bookRepository.findByNameAndAuthor(name, author)
-                .orElseThrow(() -> new BookNotFoundException());
+                .orElseThrow(BookNotFoundException::new);
 
         shoppingCart.add(book);
 
@@ -50,9 +52,9 @@ public class ShoppingServiceImpl implements ShoppingService {
     }
 
     @Override
-    public void deleteBookFromCartByNameAndAuthor(String name, String author) {
+    public void deleteBookFromCartByNameAndAuthor(String name, String author) throws BookNotFoundException, BookNotFoundInCartException {
         final var book = bookRepository.findByNameAndAuthor(name, author)
-                .orElseThrow(() -> new BookNotFoundException());
+                .orElseThrow(BookNotFoundException::new);
 
         shoppingCart.delete(book);
 
@@ -68,9 +70,9 @@ public class ShoppingServiceImpl implements ShoppingService {
 
     @Override
     @Transactional
-    public void buyBooksFromCart(String username) {
+    public void buyBooksFromCart(String username) throws UserNotFoundException, NotEnoughMoneyInAccountException {
         var user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new UserNotFoundException());
+                .orElseThrow(UserNotFoundException::new);
         final var booksInCart = shoppingCart.getBooks();
         final var moneyInAccount = user.getMoneyInAccount();
         final var coastOfBooksInCart = calculateCostOfBooks(booksInCart);

@@ -19,13 +19,13 @@ public class BookManageServiceImpl implements BookManageService {
 
 
     @Override
-    public Book findById(Integer id) {
+    public Book findById(Integer id) throws BookNotFoundException {
         return bookRepository.findById(id)
-                .orElseThrow(() -> new BookNotFoundException());
+                .orElseThrow(BookNotFoundException::new);
     }
 
     @Override
-    public void add(Book book) {
+    public void add(Book book) throws BookAlreadyExistException {
         if (isPresent(book)) {
             throw new BookAlreadyExistException();
         }
@@ -35,7 +35,7 @@ public class BookManageServiceImpl implements BookManageService {
     }
 
     @Override
-    public void deleteById(Integer id) {
+    public void deleteById(Integer id) throws BookNotFoundException {
         if (!bookRepository.existsById(id)) {
             throw new BookNotFoundException();
         }
@@ -46,7 +46,7 @@ public class BookManageServiceImpl implements BookManageService {
 
     @Override
     @Transactional
-    public void update(Book book) {
+    public void update(Book book) throws BookNotFoundException {
         if (!bookRepository.existsById(book.getId())) {
             throw new BookNotFoundException();
         }
@@ -58,8 +58,7 @@ public class BookManageServiceImpl implements BookManageService {
     private boolean isPresent(Book book) {
         return bookRepository.existsByNameAndAuthor(
                 book.getName(),
-                book.getAuthor()
-        );
+                book.getAuthor());
     };
 
 }

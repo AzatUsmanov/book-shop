@@ -1,6 +1,6 @@
 package pet.projects.bookshop.tool.exception;
 
-public class UserAlreadyRegisteredException extends UserAlreadyExistException {
+public class UserAlreadyRegisteredException extends Exception {
 
     public UserAlreadyRegisteredException() {
     }

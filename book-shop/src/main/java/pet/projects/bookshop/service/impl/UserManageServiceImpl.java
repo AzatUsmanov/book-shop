@@ -23,9 +23,9 @@ public class UserManageServiceImpl implements UserManageService {
     private final PasswordEncoder passwordEncoder;
 
     @Override
-    public User findById(Integer id) {
+    public User findById(Integer id) throws UserNotFoundException {
         return userRepository.findById(id)
-                .orElseThrow(() -> new UserNotFoundException());
+                .orElseThrow(UserNotFoundException::new);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class UserManageServiceImpl implements UserManageService {
     }
 
     @Override
-    public void add(User user) {
+    public void add(User user) throws UserAlreadyExistException {
         final var password = user.getPassword();
         final var encryptedPassword = passwordEncoder.encode(password);
         final var username = user.getUsername();
@@ -49,7 +49,7 @@ public class UserManageServiceImpl implements UserManageService {
     }
 
     @Override
-    public void deleteById(Integer id) {
+    public void deleteById(Integer id) throws UserNotFoundException {
         if (!userRepository.existsById(id)) {
             throw new UserNotFoundException();
         }
@@ -60,7 +60,7 @@ public class UserManageServiceImpl implements UserManageService {
 
     @Override
     @Transactional
-    public void update(User user) {
+    public void update(User user) throws UserNotFoundException {
         if (!userRepository.existsById(user.getId())) {
             throw new UserNotFoundException();
         }
